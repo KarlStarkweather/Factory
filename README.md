@@ -13,24 +13,47 @@
 
 ## Description
 
-An application for managers to track machines and engineers in a factory. The application is capable of the following:
-* Add a engineer to the system.
-* View all engineers.
-* Select an engineer to see their details.
-* Add a machine to the system.
-* View all machines.
-* Select a machine to see its details.
-* Assign more than one engineer to a machine.
-* view all engineers licensed to work on a machine.
-* Assign more than one machine to an engineer.
-* view all machines an engineer is licensed to work on.
+This application allows managers to track machines and engineers in a factory. It includes the following features:
+* Adding an engineer to the system.
+* Viewing all engineers.
+* Selecting an engineer to see their details.
+* Adding a machine to the system.
+* Viewing all machines.
+* Selecting a machine to see its details.
+* Assigning more than one engineer to a machine.
+* viewing all engineers licensed to work on a machine.
+* Assigning more than one machine to an engineer.
+* viewing all machines an engineer is licensed to work on.
+
+## Database Structure
+
+![Database Structure Image](/wwwroot/img/DatabaseImage.jpg)
 
 ## Setup/Installation Requirements
-
-* Make sure you have MySql Workbench installed on your computer.
+* Clone the software from the GitHub repository
+    - Open the terminal on your local machine and navigate to where you want to clone the project
+    - Enter following command: <code> git clone https://github.com/KarlStarkweather/Factory.git </code>
+* Setup/Import the data files
+    - Download and install: MySql Community
+    - Download and install: MySql Workbench
+    - Determine if the MySql server is running locally by <code> mysql -uroot -p[The password you set up] </code> into the command line:
+    - Open MySql Workbench. 
+    - Once open select the Administration tab. 
+    - Next select Data Import/Restore. This opens up the Data Import window with the Import from Disk tab open. 
+    - Select the radio button for Import from Self-Contained File. 
+    - Click the button with the three dots (if on windows) or two dots (if on mac) at the end of the path field. This will open a window to search for the sql dump file on your local disk. 
+    - Navigate to the root directory of the cloned project
+    - Select karl_starkweather.sql and click the open button. 
+    - Next, press the New... button. This will open a window where you can choose the name of the imported schema. 
+    - Choose a name appropriate to the project, (e.g. /Factory/) and click Okay. We'll need this name later when setting up the project to work with this schema. 
+    - If on a mac, click the Start Import button. If on a windows machine, switch to the Import Progress tab on the Data Import page. Click the Import button. Finally, re-click on the Schemas tab. Right-click in the Schemas window, and select Refresh All. The imported schema should now be listed.
+    
 * Make sure to have dotnet-ef installed too.<br>
-<em>This project uses <code>dotnet-ef --version 3.0.0</code> which I have globally installed but you can install it however you want. 
-* Download repo to your computer using either clone or the download link.
+    - Enter <code> dotnet-ef --version </code> in the terminal if you are not sure whether you have it
+    - If not installed, then enter:
+        - <code> dotnet add package Microsoft.EntityFrameworkCore -v 5.0.0 </code>
+        - <code> dotnet add package Pomelo.EntityFrameworkCore.MySql -v 5.0.0-alpha.2 </code>
+
 * Open the project in VScode or your terminal/IDE of choice.
 * Create a <code>appsettings.json</code> file in the root directory of the project folder. And add the following code replacing anything in square brackets with the information it represents specific to the project database:
 ```
@@ -42,24 +65,6 @@ An application for managers to track machines and engineers in a factory. The ap
 
 ```
 
-Example of complete appsettings.json:
-```
-{
-  "ConnectionStrings": {
-    "DefaultConnection": "Server=localhost;Port=3306;database=factory;uid=root;pwd=MySuperStrongPassword;"
-  }
-}
-
-```
-* Make sure to run your mysql server and open MySql workbench.
-* Open MySql Workbench and login to your server.
-* Click on the Administration tab in the Navigator on the left side of the screen. (this tab will likely be on the bottom of the window)
-* In the management section of this administration tab click on the button called <code>Data Import/Export</code>. 
-* Once the data import window opens click on <code>Import from Self-Contained file</code> radio button, navigate into the project folder and select <code>patrick_dolan.sql</code> using the file path next to that radio button.
-* Now click on the <code>New...</code> button in the section marked "Default Schema to be Imported To" directly underneath the import options section.
-* Click on the "Import Progress" tab at the top of the Data import window.
-* At the bottom of this tab click the button that reads <code>Start Import</code>.
-* Confirm the database has been imported and you can check it by clicking the "Schemas" tab on the navigator at the left side of the program. Right click in the white space and select "Refresh All"
 * Now using your IDE navigate into the Factory/ folder and use the command <code>dotnet run</code> to launch the program. 
 * The site should be available at the server address you used in the <code>appsettings.json</code> folder.
 
@@ -77,4 +82,5 @@ stark13@usa.net
 
 _MIT_
 
-Copyright (c) _2022_ _Karl Starkweather_
+Copyright (c) February 2022 Karl Starkweather.
+[MIT License](https://opensource.org/licenses/MIT)
