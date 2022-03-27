@@ -4,9 +4,9 @@
 
 @model Factory.Models.Engineer
 
-<h2>Engineer Details</h2>
-<hr>
-<h3><strong>Name: </strong>@Html.DisplayFor(model => model.Name)</h3>
+<h2>Engineer Details for @Html.DisplayFor(model => model.Name)</h2>
+@* <hr>
+<h3><strong>Name: </strong>@Html.DisplayFor(model => model.Name)</h3> *@
 <hr>
 <div class="row">
   <div class="col">
@@ -16,7 +16,7 @@
     }
     else
     {
-      <h4><strong>Machines:</strong> (@Model.JoinEngineerMachine.Count)</h4>
+      <h4><strong>Machines @Html.DisplayFor(model => model.Name) is licensed to work on:</strong></h4>
       <ul>
         @foreach (var join in Model.JoinEngineerMachine)
         {
@@ -62,10 +62,10 @@
     {
       @Html.HiddenFor(model => model.EngineerId)
 
-      @Html.Label("Add Machine")
+      @Html.Label("Add Machine: ")
       @Html.DropDownList("MachineId", "Select Machine")
 
-      <input type="submit" value="add" />
+      <input type="submit" value="Add" />
     }
     <hr>
   </div>
